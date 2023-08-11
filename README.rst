@@ -1,5 +1,6 @@
 python-mnemonic
 ===============
+**This is EXPERIMENTAL and for educational purposes!**
 
 .. image:: https://badge.fury.io/py/mnemonic.svg
     :target: https://badge.fury.io/py/mnemonic
