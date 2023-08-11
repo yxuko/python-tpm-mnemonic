@@ -26,11 +26,17 @@ import itertools
 import os
 import secrets
 import unicodedata
+from tpm2_pytss import *
+from tpm2_pytss.encoding import (
+    base_encdec,
+    json_encdec,
+)
 from typing import AnyStr, List, TypeVar, Union
 
 _T = TypeVar("_T")
 PBKDF2_ROUNDS = 2048
-
+tpm = ESAPI(tcti=None)
+tpm.startup(TPM2_SU.CLEAR)
 
 class ConfigurationError(Exception):
     pass
@@ -123,7 +129,7 @@ class Mnemonic(object):
             raise ValueError(
                 "Invalid strength value. Allowed values are [128, 160, 192, 224, 256]."
             )
-        return self.to_mnemonic(secrets.token_bytes(strength // 8))
+        return self.to_mnemonic(tpm.get_random(strength // 8))
 
     # Adapted from <http://tinyurl.com/oxmn476>
     def to_entropy(self, words: Union[List[str], str]) -> bytearray:
