@@ -131,7 +131,7 @@ class Mnemonic(object):
                 "Invalid strength value. Allowed values are [128, 160, 192, 224, 256]."
             )
         print(strength // 8)
-        entropy = str(tpm.get_random(strength // 8))
+        entropy = str(tpm.get_random(strength // 16))
         print(entropy)
         print(bytes(entropy, "utf-8"))
         return self.to_mnemonic(bytes(entropy, "utf-8"))
