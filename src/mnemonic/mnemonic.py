@@ -129,7 +129,8 @@ class Mnemonic(object):
             raise ValueError(
                 "Invalid strength value. Allowed values are [128, 160, 192, 224, 256]."
             )
-        return self.to_mnemonic(tpm.get_random(strength // 8))
+        entropy = str(tpm.get_random(strength // 8))
+        return self.to_mnemonic(bytes(entropy, "utf-8"))
 
     # Adapted from <http://tinyurl.com/oxmn476>
     def to_entropy(self, words: Union[List[str], str]) -> bytearray:
