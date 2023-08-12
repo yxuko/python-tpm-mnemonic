@@ -38,6 +38,7 @@ PBKDF2_ROUNDS = 2048
 tpm = ESAPI(tcti=None)
 tpm.startup(TPM2_SU.CLEAR)
 
+
 class ConfigurationError(Exception):
     pass
 
@@ -129,7 +130,10 @@ class Mnemonic(object):
             raise ValueError(
                 "Invalid strength value. Allowed values are [128, 160, 192, 224, 256]."
             )
+        print(strength // 8)
         entropy = str(tpm.get_random(strength // 8))
+        print(entropy)
+        print(bytes(entropy, "utf-8"))
         return self.to_mnemonic(bytes(entropy, "utf-8"))
 
     # Adapted from <http://tinyurl.com/oxmn476>
@@ -177,6 +181,7 @@ class Mnemonic(object):
         return entropy
 
     def to_mnemonic(self, data: bytes) -> str:
+        print(len(data))
         if len(data) not in [16, 20, 24, 28, 32]:
             raise ValueError(
                 f"Data length should be one of the following: [16, 20, 24, 28, 32], but it is not {len(data)}."
