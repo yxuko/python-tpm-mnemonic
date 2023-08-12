@@ -1,6 +1,5 @@
 python-mnemonic
 ===============
-**This is EXPERIMENTAL and for educational purposes!**
 
 .. image:: https://badge.fury.io/py/mnemonic.svg
     :target: https://badge.fury.io/py/mnemonic
@@ -29,7 +28,10 @@ Installation
 
 To install this library and its dependencies use:
 
- ``pip install mnemonic``
+ ```
+ cd python-tpm-mnemonic
+ python setup.py install develop
+ ```
 
 Usage examples
 --------------
@@ -71,8 +73,4 @@ Given the word list and custom passphrase (empty in example), generate seed:
 
    seed = mnemo.to_seed(words, passphrase="")
 
-Given the word list, calculate original entropy:
 
-.. code-block:: python
-
-   entropy = mnemo.to_entropy(words)

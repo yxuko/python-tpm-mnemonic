@@ -8,16 +8,12 @@ CWD = Path(__file__).resolve().parent
 setup(
     name="mnemonic",
     version="0.20",
-    author="Trezor",
-    author_email="info@trezor.io",
     description="Implementation of Bitcoin BIP-0039",
     long_description="\n".join(
         (
             (CWD / "README.rst").read_text(),
-            (CWD / "CHANGELOG.rst").read_text(),
         )
     ),
-    url="https://github.com/trezor/python-mnemonic",
     packages=["mnemonic"],
     package_dir={"": "src"},
     include_package_data=True,
