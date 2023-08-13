@@ -11,7 +11,7 @@ setup(
     description="Implementation of Bitcoin BIP-0039",
     long_description="\n".join(
         (
-            (CWD / "README.rst").read_text(),
+            (CWD / "README.md").read_text(),
         )
     ),
     packages=["mnemonic"],
