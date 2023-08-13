@@ -18,7 +18,7 @@ See https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki for full spec
 
 Please make sure that you have python 3.7 or higher.
 
-To install this library and its dependencies use, run the following command in the parent directory:
+To install this library and its dependencies use, run the following command in the current directory:
 
  ```console 
  python setup.py install develop
